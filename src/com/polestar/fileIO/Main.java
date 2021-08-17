@@ -4,6 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        FileCopyer fileCopyer = new FileCopyer("copyFile3.txt");
+        FileCopyer fileCopyer = new FileCopyer("copyFile.txt");
+
     }
 }
