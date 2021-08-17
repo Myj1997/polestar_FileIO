@@ -1,12 +1,23 @@
 package com.polestar.fileIO;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class FileCopyer {
 
     public FileCopyer(String fileName) {
         // 원본 파일
         File originfile = new File("read_target.txt");
+        Path path = Paths.get("");
+
+        // 경로 확인 방법
+        String cPath = path.toAbsolutePath().toString();
+        String dPath = System.getProperty("user.dir");
+
+        System.out.println("cPath : " + cPath);
+        System.out.println("dPath : " + dPath);
+
 
         // 복사할 파일의 경로 설정
         String filePath = originfile.getAbsolutePath().replace("read_target.txt","");
@@ -15,6 +26,8 @@ public class FileCopyer {
         System.out.println("filePath : " + filePath);
 
         // 복사할 파일 디렉토리 생성
+        // mkdir = 최하위 디렉토리만 생성
+        // mkdirs = 디렉토리가 없다면 기술한 모든 디렉토리 생성
         if(copyFile.getParentFile().mkdir()){
             System.out.println("디렉토리 생성 성공");
         }else {
