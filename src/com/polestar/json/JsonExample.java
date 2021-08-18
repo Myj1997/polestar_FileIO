@@ -31,10 +31,6 @@ public class JsonExample {
 
         System.out.println("JsonExample.writeFile OBJECT : " + objectFile);
 
-        // 파일 생성
-        String directoryPath = System.getProperty("user.dir");
-        System.out.println(directoryPath + "\\" + path);
-        File jsonFile = new File(directoryPath + "\\" + path);
 
         XmlMapper xmlMapper = new XmlMapper();
         xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);

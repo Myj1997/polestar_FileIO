@@ -20,7 +20,7 @@ public class JsonTask {
         List<Study> studyList = new ArrayList<>();
         for(int i = 0; i < 10; i ++){
             Study study = new Study();
-            study.setPatientId("13234 " + i);
+            study.setPatientId("pId " + i);
             study.setPatientName("홍길동 " + i);
             studyList.add(study);
         }
@@ -34,10 +34,13 @@ public class JsonTask {
 //            e.printStackTrace();
 //        }
 
+        // 공백포함 시키기(줄 바꿈 해서 아웃풋 해준다.)
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-        String objectFile = objectMapper.writeValueAsString(studyList);
-        //System.out.println(fileName+ " : " + objectFile);
+        // .writerWithDefaultPrettyPrinter() -> .writerWithDefaultPrettyPrinter() 똑같음. 이쁘게 출력
+        // writeValueAsString() -> String 으로 타입변환.
+        // 파라미터 : String 으로 타입 변환 해줄 대상
+        String objectFile = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(studyList);
 
         // 파일 만들기
         File jsonFile = new File(fileName);
@@ -45,7 +48,8 @@ public class JsonTask {
         try {
             FileWriter fw = new FileWriter(jsonFile);
             fw.write(objectFile);
-            fw.close(); // close를 해야 파일에 써진다.
+            fw.flush();
+            fw.close(); // close or flush 를 해야 파일에 써진다.
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -61,6 +65,7 @@ public class JsonTask {
             while ((str = br.readLine()) != null){
                 System.out.println(str);
             }
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
