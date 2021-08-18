@@ -27,8 +27,8 @@ public class OneByteReader {
 
                     content = new String(byteArrayOutputStream.toByteArray());
 
-                    System.out.println("content : " + content);
                     System.out.println("count : " + count);
+                    System.out.println("content : " + content);
                     count ++;
                 }else if(count > 100){
                     break;

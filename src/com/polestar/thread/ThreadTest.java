@@ -21,13 +21,13 @@ public class ThreadTest {
             studyList.add(study);
         }
 
-        Thread thread1 = new Thread(new ThreadStudy1(studyList));
-        Thread thread2 = new Thread(new ThreadStudy2(studyList));
-
-
-
-        thread1.start();
-        thread2.start();
+//        Thread thread1 = new Thread(new ThreadStudy1(studyList));
+//        Thread thread2 = new Thread(new ThreadStudy2(studyList));
+//
+//
+//
+//        thread1.start();
+//        thread2.start();
 
         return studyList;
     }

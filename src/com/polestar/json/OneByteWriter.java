@@ -9,11 +9,11 @@ public class OneByteWriter {
 
         int count = 0;
         byte[] bytesIn = new byte[1];
-        bytesIn[0] = 0;
-
-        File file = new File("zeroByteInsert.txt");
+        bytesIn[0] = 65;
+        File file = new File("oneByteWriter.txt");
 
         FileOutputStream fos = null;
+        FileInputStream fis = null;
 
         try {
             fos = new FileOutputStream(file);
@@ -24,17 +24,11 @@ public class OneByteWriter {
         for(; count < 60; count++){
             try {
                 Thread.sleep(100);
-                fos.write(bytesIn[0]);
+                fos.write((char)bytesIn[0]);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
-            } finally {
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
             //String content = new String();
             System.out.println(count);
