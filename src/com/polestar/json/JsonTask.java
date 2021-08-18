@@ -42,15 +42,11 @@ public class JsonTask {
         System.out.println("dPath : " +dPath);
 
         File jsonFile = new File(dPath + "\\jsonFiles\\" + fileName);
-        if(jsonFile.exists()){
-            System.out.println("생성 됨");
-        }else {
-            System.out.println("생성 안됨");
-        }
+
         if(jsonFile.getParentFile().mkdirs()){
             System.out.println("디렉토리 생성");
         }else {
-            System.out.println("생성안됨");
+            System.out.println("디렉토리 생성안됨");
         }
 
         try {

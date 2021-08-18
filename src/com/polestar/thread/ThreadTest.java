@@ -12,7 +12,7 @@ public class ThreadTest {
 
         List<Study> studyList = new ArrayList<Study>();
 
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 100; i++){
             Study study = new Study();
 
             study.setPatientId("pId" + i);
@@ -21,13 +21,13 @@ public class ThreadTest {
             studyList.add(study);
         }
 
-//        Thread thread1 = new Thread(new ThreadStudy1(studyList));
-//        Thread thread2 = new Thread(new ThreadStudy2(studyList));
-//
-//
-//
-//        thread1.start();
-//        thread2.start();
+        Thread thread1 = new Thread(new ThreadStudy1(studyList));
+        Thread thread2 = new Thread(new ThreadStudy2(studyList));
+
+
+
+        thread1.start();
+        thread2.start();
 
         return studyList;
     }
