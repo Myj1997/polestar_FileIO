@@ -8,16 +8,17 @@ public class OneByteReader {
 
 
     public void byteReader(String fileName){
+        FileInputStream fileInputStream = null;
+        ByteArrayOutputStream byteArrayOutputStream = null;
 
         try {
-            FileInputStream fileInputStream = new FileInputStream(fileName);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            fileInputStream = new FileInputStream(fileName);
+            byteArrayOutputStream = new ByteArrayOutputStream();
 
             int read = 0;
             int count = 1;
             byte[] bytesIn = new byte[1];
             String content = null;
-            System.out.println("123123123");
 
             while ((read = fileInputStream.read(bytesIn)) != -1){
 
@@ -26,8 +27,8 @@ public class OneByteReader {
 
                     content = new String(byteArrayOutputStream.toByteArray());
 
-                    System.out.println("content : " + content);
                     System.out.println("count : " + count);
+                    System.out.println("content : " + content);
                     count ++;
                 }else if(count > 100){
                     break;
@@ -38,6 +39,14 @@ public class OneByteReader {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                fileInputStream.close();
+                byteArrayOutputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 }

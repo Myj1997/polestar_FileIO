@@ -12,7 +12,7 @@ public class ThreadTest {
 
         List<Study> studyList = new ArrayList<Study>();
 
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 100; i++){
             Study study = new Study();
 
             study.setPatientId("pId" + i);

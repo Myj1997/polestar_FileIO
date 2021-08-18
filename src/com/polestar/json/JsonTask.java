@@ -42,15 +42,11 @@ public class JsonTask {
         System.out.println("dPath : " +dPath);
 
         File jsonFile = new File(dPath + "\\jsonFiles\\" + fileName);
-        if(jsonFile.exists()){
-            System.out.println("생성 됨");
-        }else {
-            System.out.println("생성 안됨");
-        }
+
         if(jsonFile.getParentFile().mkdirs()){
             System.out.println("디렉토리 생성");
         }else {
-            System.out.println("생성안됨");
+            System.out.println("디렉토리 생성안됨");
         }
 
         try {
@@ -66,6 +62,9 @@ public class JsonTask {
 
     public void jsonReader(String fileName){
 
+        FileInputStream fis = null;
+        ByteArrayOutputStream byteArrayOutputStream = null;
+
         try {
             // 스트림을 써야댐(순수 바이트 그대로 가져오기위해)
             // 한줄씩 처리하면 객체로 변환 불가
@@ -73,8 +72,8 @@ public class JsonTask {
             int read = 0;
             String content = null;
 
-            FileInputStream fis = new FileInputStream(dPath + "\\jsonFiles\\" + fileName);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            fis = new FileInputStream(dPath + "\\jsonFiles\\" + fileName);
+            byteArrayOutputStream = new ByteArrayOutputStream();
 
             while ((read = fis.read(bytesIn)) != -1){
                 byteArrayOutputStream.write(bytesIn, 0 ,read);
@@ -86,6 +85,13 @@ public class JsonTask {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                fis.close();
+                byteArrayOutputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
