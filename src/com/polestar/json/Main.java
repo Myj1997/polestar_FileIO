@@ -1,18 +1,25 @@
 package com.polestar.json;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.polestar.thread.ThreadTest;
 
-import java.io.*;
 
 public class Main {
 
     public static void main(String[] args) throws JsonProcessingException {
 
+        ThreadTest threadTest = new ThreadTest();
+
         JsonTask jsonTask = new JsonTask();
-        jsonTask.jsonWrite("jsonTask.json");
+        String filName = "jsonFile1.json";
+//        jsonTask.jsonWrite(filName,threadTest.studyListRun());
+//        jsonTask.jsonReader(filName);
 
-        //파일 읽기
-        jsonTask.jsonReader("jsonTask.json");
 
+        // 과제 1. 1바이트 씩 100번 읽기
+        OneByteReader oneByteReader = new OneByteReader();
+        oneByteReader.byteReader("chiwawa.jpg");
+
+        // 과제 2.
     }
 }

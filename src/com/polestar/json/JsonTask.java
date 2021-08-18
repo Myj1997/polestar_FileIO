@@ -3,7 +3,7 @@ package com.polestar.json;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.polestar.study.Study;
+import com.polestar.thread.Study;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -11,19 +11,15 @@ import java.util.List;
 
 public class JsonTask {
 
+    private String dPath = System.getProperty("user.dir");
 
     public JsonTask() {
     }
 
-    void jsonWrite(String fileName) throws JsonProcessingException {
+    // 파일 쓰기용
+    public void jsonWrite(String fileName, List<Study> studyList) throws JsonProcessingException {
 
-        List<Study> studyList = new ArrayList<>();
-        for(int i = 0; i < 10; i ++){
-            Study study = new Study();
-            study.setPatientId("pId " + i);
-            study.setPatientName("홍길동 " + i);
-            studyList.add(study);
-        }
+        // 1. 리스트 생성 // 이미 만들어 놓은거 쓰기
 
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -42,10 +38,23 @@ public class JsonTask {
         // 파라미터 : String 으로 타입 변환 해줄 대상
         String objectFile = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(studyList);
 
-        // 파일 만들기
-        File jsonFile = new File(fileName);
+        // 2. 파일 만들기
+        System.out.println("dPath : " +dPath);
+
+        File jsonFile = new File(dPath + "\\jsonFiles\\" + fileName);
+        if(jsonFile.exists()){
+            System.out.println("생성 됨");
+        }else {
+            System.out.println("생성 안됨");
+        }
+        if(jsonFile.getParentFile().mkdirs()){
+            System.out.println("디렉토리 생성");
+        }else {
+            System.out.println("생성안됨");
+        }
 
         try {
+            // * FilWriter 로도 파일 생성 가능 하다.
             FileWriter fw = new FileWriter(jsonFile);
             fw.write(objectFile);
             fw.flush();
@@ -55,16 +64,23 @@ public class JsonTask {
         }
     }
 
-    void jsonReader(String fileName){
+    public void jsonReader(String fileName){
 
         try {
-            FileReader fileReader = new FileReader(fileName);
-            BufferedReader br = new BufferedReader(fileReader);
+            // 스트림을 써야댐(순수 바이트 그대로 가져오기위해)
+            // 한줄씩 처리하면 객체로 변환 불가
+            byte[] bytesIn = new byte[fileName.length()];
+            int read = 0;
+            String content = null;
 
-            String str = null;
-            while ((str = br.readLine()) != null){
-                System.out.println(str);
+            FileInputStream fis = new FileInputStream(dPath + "\\jsonFiles\\" + fileName);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+            while ((read = fis.read(bytesIn)) != -1){
+                byteArrayOutputStream.write(bytesIn, 0 ,read);
+                content = new String(byteArrayOutputStream.toByteArray());
             }
+                System.out.println(fileName + " : " + content);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
