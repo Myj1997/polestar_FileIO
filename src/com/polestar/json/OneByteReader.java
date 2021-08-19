@@ -12,7 +12,7 @@ public class OneByteReader {
         ByteArrayOutputStream byteArrayOutputStream = null;
 
         try {
-            fileInputStream = new FileInputStream(fileName);
+            fileInputStream = new FileInputStream("readFiles/"+fileName);
             byteArrayOutputStream = new ByteArrayOutputStream();
 
             int read = 0;

@@ -7,6 +7,5 @@ public class Main {
         StudyListToExcel studyListToExcel = new StudyListToExcel();
         studyListToExcel.MakeExcel("excelTask2.xlsx");
 
-
     }
 }

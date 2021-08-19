@@ -6,7 +6,7 @@ public class FileReader {
 
     private  void readFIle(){
 
-        File file = new File("read_target.txt");
+        File file = new File("readFiles/read_target.txt");
         boolean status = file.exists();
         System.out.println("FileReader.readFile : " + status +", " + file.getAbsolutePath());
 

@@ -4,13 +4,13 @@ import java.io.*;
 
 public class OneByteWriter {
     //        2. 60초 동안 파일에 0값 write 해서 파일을 만들어보자. 몇바이트가 생성 될까?
-// 1. 파일 0번째 값 가져오기
+
     public void sixtySecondInserter(){
 
         int count = 0;
         byte[] bytesIn = new byte[1];
         bytesIn[0] = 65;
-        File file = new File("oneByteWriter.txt");
+        File file = new File("readFiles/oneByteWriter2.txt");
 
         FileOutputStream fos = null;
         FileInputStream fis = null;
@@ -23,7 +23,7 @@ public class OneByteWriter {
 
         for(; count < 60; count++){
             try {
-                Thread.sleep(1000);
+                Thread.sleep(100);
                 fos.write((char)bytesIn[0]);
             } catch (InterruptedException e) {
                 e.printStackTrace();

@@ -5,7 +5,7 @@ public class Main {
 
 
         FileCopyer fileCopyer = new FileCopyer();
-        fileCopyer.copyFile("copyFil22");
+        fileCopyer.copyFile("copyFil22.txt");
     }
 
 

@@ -18,15 +18,15 @@ public class FileCopyer {
         System.out.println("dPath : " + dPath);
 
         // 원본 파일
-        String originFileName = "read_target.txt";
+        String originFileName = "readFiles/read_target.txt";
         File originFile = new File(originFileName);
 
         // 복사할 파일의 경로 설정
-        String filePath = originFile.getAbsolutePath().replace(originFileName,"");
+        //String filePath = originFile.getAbsolutePath().replace(originFileName,"");
         // file = getParentFile 하면 상위파일
-        System.out.println("filePath : " + filePath);
+
         // 복사할 파일 생성 + 디렉토리 지정(폴더)
-        File copyFile = new File(filePath + "\\CopyFiles\\"+  fileName);
+        File copyFile = new File(dPath + "\\CopyFiles\\"+  fileName);
 
         if (copyFile.exists()){
             System.out.println("이미 파일이 존재합니다.");
