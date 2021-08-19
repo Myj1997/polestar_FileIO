@@ -1,7 +1,10 @@
 package com.polestar.thread;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.time.LocalDateTime;
 
+@JsonInclude(JsonInclude.Include.NON_NULL) // null 은 json 에 표시 안되게
 public class Study {
 
     private String studyUid;

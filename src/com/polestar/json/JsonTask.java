@@ -1,5 +1,6 @@
 package com.polestar.json;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -32,6 +33,8 @@ public class JsonTask {
 
         // 공백포함 시키기(줄 바꿈 해서 아웃풋 해준다.)
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+        // null 제외 입력
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 
         // .writerWithDefaultPrettyPrinter() -> .writerWithDefaultPrettyPrinter() 똑같음. 이쁘게 출력
         // writeValueAsString() -> String 으로 타입변환.
