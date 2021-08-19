@@ -1,11 +1,12 @@
 package com.polestar.thread;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.polestar.excel.IExcel;
 
 import java.time.LocalDateTime;
 
 @JsonInclude(JsonInclude.Include.NON_NULL) // null 은 json 에 표시 안되게
-public class Study {
+public class Study implements IExcel {
 
     private String studyUid;
     private String seriesNumber;
@@ -179,5 +180,11 @@ public class Study {
                 "patientId='" + patientId + '\'' +
                 ", patientName='" + patientName + '\'' +
                 '}';
+    }
+
+    // 오브젝트를 리턴하는 방법도 있지만 추천하지않는다.
+    @Override
+    public String getValue(String key) {
+        return null;
     }
 }

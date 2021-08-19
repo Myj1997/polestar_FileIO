@@ -15,9 +15,15 @@ import java.util.List;
 
 public class StudyListToExcel {
 
+    // static 으로 처리는 나쁜 예
     private static final String FILE_NAME = "excels/YjExcel.xlsx";
+    private String[] headers = {"patientId","patientName"};
 
     public static void main(String[] args) {
+
+        // testCode // 스터디 객체에서 IExecl 오버라이드 한 후 if 페이션츠아이디.이퀄 일때 리턴 get페이션츠
+
+        // test code end
 
         ThreadTest threadTest = new ThreadTest();
         List<Study> studyList = threadTest.studyListRun();
@@ -25,6 +31,9 @@ public class StudyListToExcel {
         XSSFWorkbook workbook = new XSSFWorkbook();
         XSSFSheet sheet = workbook.createSheet("yj excel task");
         Row row = null;
+
+        // 스터디 객체를 인터페이스로 만들고
+        // 밸류를 파라미터로 주면 다른 객체를 사용해도 쓸 수 있지 않을까
 
         for (int i = 0; i < studyList.size(); i++) {
             row = sheet.createRow(i);
