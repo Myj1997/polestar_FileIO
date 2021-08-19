@@ -4,6 +4,7 @@ import com.polestar.thread.Study;
 import com.polestar.thread.ThreadTest;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -29,7 +30,24 @@ public class StudyListToExcel {
         for (int i = 0; i < studyList.size(); i++){
             Row row = sheet.createRow(rowNum++);
             int colNum = 0;
-            //row.set
+
+            Cell cell0 = row.createCell(colNum++);
+            cell0.setCellValue(i + " : ");
+
+            Cell cell = row.createCell(colNum++);
+            cell.setCellValue("patientId : ");
+
+
+            Cell cell2 = row.createCell(colNum++);
+            cell2.setCellValue(studyList.get(i).getPatientId());
+
+            Cell cell3 = row.createCell(colNum++);
+            cell3.setCellValue("patientName : ");
+
+            Cell cell4 = row.createCell(colNum++);
+            cell4.setCellValue(studyList.get(i).getPatientName());
+
+
 
         }
 
