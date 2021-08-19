@@ -185,6 +185,15 @@ public class Study implements IExcel {
     // 오브젝트를 리턴하는 방법도 있지만 추천하지않는다.
     @Override
     public String getValue(String key) {
-        return null;
+        if ("patientId".equals(key)){
+
+            return getPatientId();
+        } else if ("patientName".equals(key)){
+
+            return getPatientName();
+        }
+        // 코드 정리 & github 올림 & 퍼블릭 변경 & 이메일로 보냄
+
+        return "X";
     }
 }
