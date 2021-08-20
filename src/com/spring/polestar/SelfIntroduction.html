@@ -54,46 +54,49 @@
                 <li class="nav-item"><a href="#" class="nav-link">자기소개서</a></li>
             </ul>
         </header>
-    </div>
 
-    <div class="row g-5" style="display : flex;">
-        <div>
-            <img src="/readFiles/다운로드.png" alt="숲" class="img-fluid img-thumbnail img">
-            <div class=" mb-4 bg-light rounded-3"
-                 style="width : 650px; margin-left : 35%;">
-                <div class="container-fluid py-5 cof">
-                    <h5 class=" fw-bold" style="margin-bottom : 1%">인적사항</h5>
-                    <table>
-                        <tr>
-                            <th class="thWidth">이름</th>
-                            <td>민연준</td>
-                            <th>영문</th>
-                            <td>min</td>
-                        </tr>
-                        <tr>
-                            <th>나이 </th>
-                            <td colspan="3" class="tdWidth">123123</td>
-                        </tr>
-                        <tr>
-                            <th class="thWidth">연락처</th>
-                            <td>010</td>
-                            <th class="thWidth">e-mail</th>
-                            <td>gmail.com</td>
-                        </tr>
-                        <tr>
-                            <th> GitHub</th>
-                            <td>
-                                <a href="https://github.com/Myj1997" target="_blank">link</a>
-                            </td>
-                            <th> Notion</th>
-                            <td>
-                                <a href="https://bumpy-trust-35a.notion.site/bbc2e96456214a4cb01edd169ea22d50" target="_blank">link</a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+    <div class="row g-5">
+        <div class="col-6">
+        <img src="/readFiles/다운로드.png" onclick="img_click()" class="img-fluid img-thumbnail img">
+        </div>
+        <div class="col-6 mb-4 bg-light rounded-3" style="width : 650px; margin-left : 35%;">
+            <div class="container-fluid py-5 cof">
+                <h5 class=" fw-bold" style="margin-bottom : 1%">인적사항</h5>
+                <table>
+                    <tr>
+                        <th class="thWidth">이름</th>
+                        <td>민연준</td>
+                        <th>영문</th>
+                        <td>min</td>
+                    </tr>
+                    <tr>
+                        <th>나이</th>
+                        <td colspan="3" class="tdWidth">123123</td>
+                    </tr>
+                    <tr>
+                        <th class="thWidth">연락처</th>
+                        <td>010</td>
+                        <th class="thWidth">e-mail</th>
+                        <td>gmail.com</td>
+                    </tr>
+                    <tr>
+                        <th> GitHub</th>
+                        <td>
+                            <a href="https://github.com/Myj1997" target="_blank">link</a>
+                        </td>
+                        <th> Notion</th>
+                        <td>
+                            <a href="https://bumpy-trust-35a.notion.site/bbc2e96456214a4cb01edd169ea22d50"
+                               target="_blank">link</a>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
+    </div>
+
+        <hr style="width:60%!important; margin : auto">
+
 
         <div class=" mb-4 bg-light rounded-3 mb4">
             <div class="container-fluid py-5 cof" style="tex">
@@ -104,7 +107,6 @@
                         <th width="200px">학교명</th>
                         <th width="150px">전공</th>
                         <th width="150px">구분</th>
-
                     </thead>
                     <tbody>
                     <tr>
@@ -124,6 +126,8 @@
                 </table>
             </div>
         </div>
+
+        <hr style="width:60%!important; margin : auto">
 
         <div class=" mb-4 bg-light rounded-3 mb4">
             <div class="container-fluid py-5 cof" style="tex">
@@ -165,7 +169,7 @@
                     </thead>
                     <tbody>
                     <tr style>
-                        <td>spring</td>
+                        <td id="test">spring</td>
                         <td>java</td>
 
                     </tr>
@@ -175,8 +179,9 @@
                 </table>
             </div>
         </div>
-
+    </div>
 
     </div>
+
 </body>
 </html>
