@@ -19,7 +19,7 @@ public class StudyListToExcel {
     //private static final String FILE_NAME = "excels/YjExcel3.xlsx";
     private String[] headers = {"patientId","patientName"};
 
-    public void MakeExcel(String fileName){
+    public void makeExcel(String fileName){
 
         ThreadTest threadTest = new ThreadTest();
         List<Study> studyList = threadTest.studyListRun();
